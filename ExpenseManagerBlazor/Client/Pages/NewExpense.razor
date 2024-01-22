@@ -1,0 +1,41 @@
+﻿@page "/newexpense"
+
+<PageTitle>Nuevo gato</PageTitle>
+
+
+
+<EditForm Model="Expense" OnValidSubmit="Save">
+    <DataAnnotationsValidator/>
+    <MatPaper Elevation="4" Class="p-3">
+
+        <div class="container-fluid">
+            <div class="form-group row">
+                <div class="col-3">
+                    <MatTextField Label="Concepto" Type="text" @bind-Value="Expense.Concept">
+                    </MatTextField>
+                    <ValidationMessage For="@(() => Expense.Concept)"/>
+                </div>
+                <div class="col-3">
+                    <MatTextField Label="Descripción" Type="text" @bind-Value="Expense.Description">
+                    </MatTextField>
+                    <ValidationMessage For="@(() => Expense.Description)" />
+                </div>
+                <div class="col-3">
+                    <MatTextField Type="number" Label="Total" TValue="double" @bind-Value="Expense.Total">
+                    </MatTextField>
+                    <ValidationMessage For="@(() => Expense.Total)" />
+                </div>
+            </div>
+            <div class="form-group row mt-3">
+                <div class="col">
+                    <MatButton Raised="true" Type="submit">
+                        Guardar
+                    </MatButton>
+                </div>
+
+            </div>
+
+        </div>
+    </MatPaper>
+
+</EditForm>

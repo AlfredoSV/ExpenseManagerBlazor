@@ -1,0 +1,39 @@
+﻿@page "/login"
+
+<PageTitle>Login</PageTitle>
+
+<EditForm Model="user" OnValidSubmit="@Success">
+    <DataAnnotationsValidator />
+
+    <div class="container-fluid mt-5 h-100">
+
+        <div class="form-group row mt-3">
+            <div class="col text-center">
+                <h2>Login</h2>
+            </div>
+        </div>
+        <div class="form-group row mt-3">
+            <div class="col text-center">
+                <MatTextField Style="width:300px;" Label="Correo" @bind-Value="user.Email" Type="email"></MatTextField>
+                <ValidationMessage For="@(()=> user.Email)" />
+            </div>
+        </div>
+
+        <div class="form-group row mt-3">
+            <div class="col text-center">
+                <MatTextField Style="width:300px;" Label="Contraseña" @bind-Value="user.Password" Type="password"></MatTextField>
+                <ValidationMessage For="@(()=> user.Password)" />
+            </div>
+
+        </div>
+
+        <div class="form-group row mt-3">
+            <div class="col text-center">
+                <MatButton Type="submit" Raised="true">Ingresar</MatButton>
+            </div>
+        </div>
+
+    </div>
+
+</EditForm>
+
